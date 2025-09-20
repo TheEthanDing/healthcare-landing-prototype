@@ -23,7 +23,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="mt-6 text-lg text-[var(--text-secondary)] leading-relaxed">
-              Stop losing millions to the "long tail" of data analysis. Our AI agents tackle the 90% of requests your team can't afford to touch—delivering insights that pay for themselves in weeks, not months.
+              Stop losing millions to the &ldquo;long tail&rdquo; of data analysis. Our AI agents tackle the 90% of requests your team can&apos;t afford to touch—delivering insights that pay for themselves in weeks, not months.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">

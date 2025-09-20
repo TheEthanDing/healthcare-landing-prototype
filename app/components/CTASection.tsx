@@ -14,10 +14,10 @@ export default function CTASection() {
         </h2>
 
         <p className="text-xl text-gray-200 mb-2 max-w-2xl mx-auto font-semibold">
-          Don't Get Left Behind
+          Don&apos;t Get Left Behind
         </p>
         <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-          While you're reading this, 847 companies are saving millions with our agents. Every day you wait costs you money.
+          While you&apos;re reading this, 847 companies are saving millions with our agents. Every day you wait costs you money.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

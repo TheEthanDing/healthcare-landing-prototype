@@ -62,7 +62,7 @@ export default function HealthcarePage() {
             Join 847 Hospitals Already Saving Lives & Money
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Your competitors are already preventing readmissions. Don't let them get ahead.
+            Your competitors are already preventing readmissions. Don&apos;t let them get ahead.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

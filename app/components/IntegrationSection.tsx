@@ -30,10 +30,10 @@ export default function IntegrationSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center section-margin-lg">
           <h2 className="text-3xl md:text-4xl font-medium text-[var(--text-primary)]">
-            Don't Rip and Replace. Plug In and Profit.
+            Don&apos;t Rip and Replace. Plug In and Profit.
           </h2>
           <p className="text-[var(--text-secondary)] mt-4 text-lg">
-            Works with whatever you've already bought. No million-dollar migrations required.
+            Works with whatever you&apos;ve already bought. No million-dollar migrations required.
           </p>
         </div>
 

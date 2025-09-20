@@ -12,7 +12,7 @@ export default function CustomerCaseStudies() {
       organization: "Lumeris",
       metric: "$28.8M Annual Savings",
       description: "Using TextQL Agents to drive patient intervention and prevent ER visits",
-      quote: "Ana just did in 30 seconds what would've taken me a full day to do",
+      quote: "Ana just did in 30 seconds what would have taken me a full day to do",
       speaker: "Matt Howard, Director of In-Market Analytics",
       results: [
         "55% reduction in preventable ER visits",
@@ -58,10 +58,10 @@ export default function CustomerCaseStudies() {
             <span className="text-sm font-medium text-[var(--green-dark)]">💰 Proven ROI</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-medium text-[var(--text-primary)]">
-            "This Saved My Hospital $28.8 Million"
+            This Saved My Hospital $28.8 Million
           </h2>
           <p className="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto">
-            Matt Howard, Lumeris Director: "What took me a full day now takes 30 seconds"
+            Matt Howard, Lumeris Director: What took me a full day now takes 30 seconds
           </p>
         </div>
 
