@@ -1,26 +1,162 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cream/Off-white backgrounds */
+  --cream: #FAF8F3;
+  --cream-light: #FEFDFB;
+  --cream-dark: #F5F2EA;
+
+  /* Dark green accents */
+  --green-dark: #1B4332;
+  --green-primary: #2D6A4F;
+  --green-light: #52B788;
+  --green-mint: #95D5B2;
+
+  /* Text colors */
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --text-light: #6B6B6B;
+
+  /* Borders and lines */
+  --border-light: #E8E5DD;
+  --border-dark: #D4D1C8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--cream);
+  --color-cream-light: var(--cream-light);
+  --color-green-dark: var(--green-dark);
+  --color-green-primary: var(--green-primary);
+  --color-green-light: var(--green-light);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream-light);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* Typography Scale */
+h1 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+h4, h5, h6 {
+  font-weight: 500;
+}
+
+/* Consistent Section Spacing */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section-padding-lg {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.section-margin {
+  margin-bottom: 3rem;
+}
+
+.section-margin-lg {
+  margin-bottom: 4rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--green-light);
+  border-radius: 4px;
+}
+
+/* Border utility classes */
+.thin-border {
+  border-width: 1px;
+  border-color: var(--border-light);
+}
+
+.thin-border-dark {
+  border-width: 1px;
+  border-color: var(--border-dark);
+}
+
+.border-subtle {
+  border: 1px solid var(--border-light);
+}
+
+.border-medium {
+  border: 1px solid var(--border-dark);
+}
+
+.border-strong {
+  border: 2px solid var(--green-light);
+}
+
+.border-accent {
+  border: 1px solid var(--green-mint);
+}
+
+/* Section dividers */
+.section-divider {
+  border-top: 1px solid var(--border-light);
+  margin: 0;
+}
+
+.section-divider-dark {
+  border-top: 1px solid var(--border-dark);
+  margin: 0;
+}
+
+/* Card borders with hover effects */
+.card-border {
+  border: 1px solid var(--border-light);
+  transition: border-color 0.3s ease;
+}
+
+.card-border:hover {
+  border-color: var(--green-light);
+}
+
+.card-border-strong {
+  border: 1px solid var(--border-dark);
+  transition: all 0.3s ease;
+}
+
+.card-border-strong:hover {
+  border-color: var(--green-primary);
+  box-shadow: 0 4px 20px rgba(45, 106, 79, 0.1);
+}
+
+/* Pattern backgrounds */
+.pattern-dots {
+  background-image: radial-gradient(circle, var(--border-light) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(var(--border-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
