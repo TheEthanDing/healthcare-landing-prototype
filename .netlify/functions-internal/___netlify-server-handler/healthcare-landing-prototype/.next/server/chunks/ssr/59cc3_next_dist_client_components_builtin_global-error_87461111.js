@@ -1,0 +1,3 @@
+module.exports=[1592,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(54684);a.n(d("[project]/healthcare-landing-prototype/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},12375,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(54684);a.n(d("[project]/healthcare-landing-prototype/node_modules/next/dist/client/components/builtin/global-error.js"))},54247,a=>{"use strict";a.i(1592);var b=a.i(12375);a.n(b)}];
+
+//# sourceMappingURL=59cc3_next_dist_client_components_builtin_global-error_87461111.js.map

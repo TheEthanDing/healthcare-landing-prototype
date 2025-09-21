@@ -28,7 +28,7 @@ export default function HeroSection() {
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
-                href="#contact"
+                href="/demo"
                 className="inline-block bg-[var(--green-primary)] text-white px-8 py-3 rounded-full hover:bg-[var(--green-dark)] transition-colors font-bold text-center"
               >
                 Calculate My ROI in 60 Seconds →

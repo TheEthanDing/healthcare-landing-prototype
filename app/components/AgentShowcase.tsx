@@ -1,21 +1,23 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function AgentShowcase() {
+  const [activeTab, setActiveTab] = useState(0);
+
   const agents = [
     {
       id: "clinical-risk",
       name: "Never Lose Another Patient to Preventable Readmission",
       category: "Clinical Risk Prevention",
-      description: "Continuously analyzes patient data to identify high-risk individuals for proactive intervention",
-      capabilities: [
-        "Predicts crashes 48hrs early",
-        "Alerts via Epic/Cerner",
-        "Ranks by urgency",
-        "Tracks interventions",
-      ],
+      description: "AI agent that continuously monitors patient data across Epic, Cerner, and claims systems to predict deterioration 48 hours early. Alerts care teams before patients crash, preventing costly readmissions and saving lives.",
+      dataSources: ["Epic EHR", "Cerner", "Claims Data", "Lab Results", "Vital Signs", "Social Determinants"],
+      powersDecision: "Patient intervention timing and care escalation protocols",
       metrics: {
         primary: "45% fewer",
         secondary: "readmissions",
+        additionalMetrics: ["$12.5M annual savings", "48-hour early warning", "94% accuracy rate"]
       },
       icon: "🚨",
     },
@@ -23,16 +25,13 @@ export default function AgentShowcase() {
       id: "revenue-cycle",
       name: "Stop Losing $2.4M Monthly to Claim Denials",
       category: "Revenue Recovery",
-      description: "Automates claims processing, identifies denial patterns, and optimizes billing workflows",
-      capabilities: [
-        "Fixes claims pre-submission",
-        "Predicts denials",
-        "Auto prior-auth",
-        "Tracks revenue leaks",
-      ],
+      description: "Automates claims processing by analyzing historical denial patterns across multiple payers. Fixes claims pre-submission and predicts denials with 95% accuracy, recovering millions in lost revenue.",
+      dataSources: ["Claims History", "Payer Rules", "CPT Codes", "ICD-10", "Prior Authorizations", "Denial Patterns"],
+      powersDecision: "Claim submission optimization and denial prevention strategies",
       metrics: {
         primary: "$2.4M recovered",
         secondary: "monthly",
+        additionalMetrics: ["95% approval rate", "60% faster processing", "Zero manual scrubbing"]
       },
       icon: "💸",
     },
@@ -40,16 +39,13 @@ export default function AgentShowcase() {
       id: "population-health",
       name: "Turn Your Patient Population Into Profit",
       category: "Value-Based Care",
-      description: "Analyzes population trends, identifies at-risk cohorts, and recommends targeted interventions",
-      capabilities: [
-        "Finds hidden risk patterns",
-        "Social risk scoring",
-        "Cost-effective targeting",
-        "ROI tracking",
-      ],
+      description: "Analyzes population trends across demographics, social determinants, and clinical outcomes to identify high-value intervention opportunities. Optimizes care management programs for maximum ROI.",
+      dataSources: ["Patient Demographics", "Social Determinants", "Quality Measures", "Cost Data", "Outcome Metrics", "Risk Scores"],
+      powersDecision: "Population health investment allocation and care program prioritization",
       metrics: {
         primary: "30% higher",
         secondary: "quality scores",
+        additionalMetrics: ["$8.2M cost avoidance", "15,000+ patients managed", "85% program adherence"]
       },
       icon: "📈",
     },
@@ -57,27 +53,34 @@ export default function AgentShowcase() {
       id: "quality-measures",
       name: "Guarantee Perfect Quality Scores Every Time",
       category: "Quality Assurance",
-      description: "Automates quality measure calculations and regulatory reporting across all programs",
-      capabilities: [
-        "Zero manual HEDIS work",
-        "Perfect MIPS scores",
-        "Real-time gap closing",
-        "Auto-submit reports",
-      ],
+      description: "Automates HEDIS, MIPS, and CMS quality measure calculations with real-time gap analysis. Ensures 100% compliant reporting while identifying improvement opportunities before audits.",
+      dataSources: ["HEDIS Data", "CMS Reports", "Quality Metrics", "Patient Records", "Care Gaps", "Performance Indicators"],
+      powersDecision: "Quality improvement prioritization and resource allocation",
       metrics: {
         primary: "100% compliant",
         secondary: "reporting",
+        additionalMetrics: ["4.5 star average", "Zero audit findings", "47 measures automated"]
       },
       icon: "🏆",
     },
   ];
+
+  // Auto-scroll every 8 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % agents.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [agents.length]);
+
+  const activeAgent = agents[activeTab];
 
   return (
     <section className="section-padding bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center section-margin-lg">
           <div className="inline-flex items-center px-3 py-1 bg-[var(--green-mint)] rounded-full mb-4">
-            <span className="text-sm font-medium text-[var(--green-dark)]">🚀 Deploy in Minutes</span>
+            <span className="text-sm font-medium text-[var(--green-dark)]">🤖 Prebuilt Agents</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-medium text-[var(--text-primary)]">
             4 Agents That Will Transform Your Hospital
@@ -87,57 +90,123 @@ export default function AgentShowcase() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {agents.map((agent) => (
-            <Link
-              key={agent.id}
-              href={`/agent/${agent.id}`}
-              className="group block"
-            >
-              <div className="bg-[var(--cream-light)] rounded-2xl p-8 hover:shadow-xl transition-all hover:-translate-y-1 card-border-strong">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-4">
-                    <span className="text-4xl">{agent.icon}</span>
-                    <div className="border-r border-[var(--border-light)] pr-4">
-                      <h3 className="text-lg font-medium text-[var(--text-primary)] pb-1 border-b border-[var(--border-light)] mb-1">
-                        {agent.name}
-                      </h3>
-                      <p className="text-xs text-[var(--text-secondary)]">{agent.category}</p>
-                    </div>
-                  </div>
-                </div>
+        {/* Tab Navigation */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-[var(--cream-light)] rounded-2xl p-2 card-border inline-flex">
+            {agents.map((agent, index) => (
+              <button
+                key={agent.id}
+                onClick={() => setActiveTab(index)}
+                className={`px-6 py-3 rounded-xl transition-all font-medium text-sm ${
+                  activeTab === index
+                    ? 'bg-white text-[var(--green-primary)] shadow-md'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                <span className="text-lg mr-2">{agent.icon}</span>
+                {agent.category}
+              </button>
+            ))}
+          </div>
+        </div>
 
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {agent.capabilities.slice(0, 4).map((capability, index) => (
-                    <div key={index} className="bg-white rounded-lg px-3 py-2 text-xs text-center text-[var(--text-secondary)] border-subtle">
-                      {capability}
-                    </div>
-                  ))}
+        {/* Active Agent Card */}
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden card-border-strong">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left: Image Placeholder */}
+            <div className="bg-[var(--cream)] p-12 flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-32 h-32 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-6xl">{activeAgent.icon}</span>
                 </div>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-2xl font-bold text-[var(--green-dark)]">{agent.metrics.primary}</p>
-                    <p className="text-xs text-[var(--text-secondary)]">{agent.metrics.secondary}</p>
-                  </div>
-                  <div className="w-10 h-10 bg-[var(--green-mint)] rounded-full flex items-center justify-center group-hover:bg-[var(--green-primary)] transition-colors">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <p className="text-lg font-medium text-[var(--text-primary)] mb-2">Live Agent Dashboard</p>
+                  <p className="text-sm text-[var(--text-secondary)]">Real-time monitoring & alerts</p>
+                  <div className="mt-4 flex justify-center gap-2">
+                    <div className="w-16 h-3 bg-[var(--green-light)] rounded"></div>
+                    <div className="w-12 h-3 bg-[var(--green-mint)] rounded"></div>
+                    <div className="w-20 h-3 bg-[var(--green-primary)] rounded"></div>
                   </div>
                 </div>
               </div>
-            </Link>
-          ))}
+            </div>
+
+            {/* Right: Agent Details */}
+            <div className="p-8 lg:p-12">
+              <div className="mb-6">
+                <h3 className="text-2xl font-medium text-[var(--text-primary)] mb-3">
+                  {activeAgent.name}
+                </h3>
+                <p className="text-[var(--text-secondary)] leading-relaxed">
+                  {activeAgent.description}
+                </p>
+              </div>
+
+              {/* Data Sources */}
+              <div className="mb-6">
+                <h4 className="text-sm font-medium text-[var(--text-primary)] mb-3 border-b border-[var(--border-light)] pb-2">
+                  Data Sources & Tables
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {activeAgent.dataSources.map((source, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-[var(--cream-light)] rounded-full text-xs text-[var(--text-secondary)] border-subtle"
+                    >
+                      {source}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Powers Decision */}
+              <div className="mb-6">
+                <h4 className="text-sm font-medium text-[var(--text-primary)] mb-3 border-b border-[var(--border-light)] pb-2">
+                  Powers Decision
+                </h4>
+                <p className="text-sm text-[var(--text-secondary)] bg-[var(--cream-light)] p-3 rounded-lg border-subtle">
+                  {activeAgent.powersDecision}
+                </p>
+              </div>
+
+              {/* Metrics */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="text-center p-4 bg-[var(--cream-light)] rounded-lg border-subtle">
+                  <p className="text-2xl font-bold text-[var(--green-dark)]">{activeAgent.metrics.primary}</p>
+                  <p className="text-xs text-[var(--text-secondary)]">{activeAgent.metrics.secondary}</p>
+                </div>
+                {activeAgent.metrics.additionalMetrics.slice(0, 2).map((metric, index) => (
+                  <div key={index} className="text-center p-4 bg-[var(--cream-light)] rounded-lg border-subtle">
+                    <p className="text-lg font-semibold text-[var(--text-primary)]">{metric}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <Link
+                href={`/agent/${activeAgent.id}`}
+                className="inline-flex items-center text-[var(--green-primary)] font-semibold hover:text-[var(--green-dark)] group"
+              >
+                Explore This Agent
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="text-center mt-12">
-          <Link
-            href="#contact"
-            className="inline-block bg-[var(--green-primary)] text-white px-8 py-3 rounded-full hover:bg-[var(--green-dark)] transition-colors font-semibold"
-          >
-            Deploy Agents in Your Organization
-          </Link>
+        {/* Progress Indicator */}
+        <div className="flex justify-center mt-8 gap-2">
+          {agents.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveTab(index)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                activeTab === index ? 'bg-[var(--green-primary)]' : 'bg-[var(--border-light)]'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

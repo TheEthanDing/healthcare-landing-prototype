@@ -1,6 +1,5 @@
 import Link from "next/link";
 import HeroSection from "./components/HeroSection";
-import FeaturesSection from "./components/FeaturesSection";
 import DataCapabilitySection from "./components/DataCapabilitySection";
 import ArchitectureSection from "./components/ArchitectureSection";
 import IntegrationSection from "./components/IntegrationSection";
@@ -12,14 +11,6 @@ export default function HomePage() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Section Divider */}
-      <hr className="section-divider" />
-
-      {/* Key Features */}
-      <FeaturesSection />
-
-      {/* Section Divider */}
-      <hr className="section-divider-dark" />
 
       {/* Data Capability Showcase */}
       <DataCapabilitySection />

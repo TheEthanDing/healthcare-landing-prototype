@@ -22,30 +22,6 @@ export default function CustomerCaseStudies() {
       ],
       featured: true,
     },
-    {
-      title: "Major Health System: Claims Analytics",
-      organization: "Top 10 Health System",
-      metric: "1B+ Claims Processed",
-      description: "Transforming insurance claims analytics to optimize submissions and reduce denials",
-      results: [
-        "35% reduction in claim denials",
-        "60% faster claim processing",
-        "Automated denial pattern detection",
-        "Proactive submission optimization",
-      ],
-    },
-    {
-      title: "Regional Hospital Network: Clinical Analytics",
-      organization: "500+ Bed Hospital Network",
-      metric: "40% Time Savings",
-      description: "Deploying agents for real-time clinical decision support",
-      results: [
-        "Improved patient outcomes",
-        "Reduced readmission rates",
-        "Faster clinical insights",
-        "Better resource allocation",
-      ],
-    },
   ];
 
   const featuredCase = caseStudies[0];

@@ -22,7 +22,7 @@ export default function CTASection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Link
-            href="#contact"
+            href="/demo"
             className="inline-block bg-[var(--green-mint)] text-[var(--green-dark)] px-10 py-4 rounded-full hover:bg-white transition-all font-bold text-lg shadow-lg"
           >
             Get My ROI Calculator (Free) →

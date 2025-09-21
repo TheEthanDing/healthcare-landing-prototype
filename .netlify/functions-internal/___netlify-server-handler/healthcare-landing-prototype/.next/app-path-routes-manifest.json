@@ -1,0 +1,9 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/agent/[id]/page": "/agent/[id]",
+  "/demo/page": "/demo",
+  "/favicon.ico/route": "/favicon.ico",
+  "/healthcare/page": "/healthcare",
+  "/hlth/page": "/hlth",
+  "/page": "/"
+}

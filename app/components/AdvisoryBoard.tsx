@@ -1,34 +1,41 @@
+import Link from "next/link";
+
 export default function AdvisoryBoard() {
   const advisors = [
     {
-      name: "Dr. Sarah Johnson",
-      title: "Former CMO, Mayo Clinic",
-      expertise: "Clinical Operations & Digital Health",
+      name: "Varsha Rao",
+      title: "CEO & Founder, Zeal AI | Former CEO, Nurx",
+      expertise: "Digital Health, Telehealth Platforms, Healthcare Operations",
       image: "/advisor-placeholder.png",
+      slug: "varsha-rao",
     },
     {
-      name: "Michael Chen",
-      title: "Ex-CTO, Epic Systems",
-      expertise: "Healthcare IT & Interoperability",
+      name: "Dave Griffith, MD",
+      title: "Healthcare Executive, Trinity Health",
+      expertise: "Clinical Operations & Healthcare Technology",
       image: "/advisor-placeholder.png",
+      slug: "dave-griffith",
     },
     {
-      name: "Dr. Emily Rodriguez",
-      title: "Chief Data Officer, Kaiser Permanente",
-      expertise: "Healthcare Analytics & AI",
+      name: "Vikram Bandugula",
+      title: "Senior Director of Data Science, Elevance Health",
+      expertise: "Healthcare AI, Data Science, Bias Mitigation",
       image: "/advisor-placeholder.png",
+      slug: "vikram-bandugula",
     },
     {
-      name: "James Williams",
-      title: "Former CEO, Cerner Corporation",
-      expertise: "Healthcare Technology Strategy",
+      name: "Raghu Chandra",
+      title: "Healthcare Consulting Leader, Capgemini",
+      expertise: "Healthcare Digital Transformation, Data Strategy",
       image: "/advisor-placeholder.png",
+      slug: "raghu-chandra",
     },
     {
-      name: "Dr. Lisa Park",
-      title: "Director, Stanford Medicine AI Lab",
-      expertise: "Medical AI & Research",
+      name: "Jean-Claude Saghbini",
+      title: "CTO & President of Technology, Lumeris",
+      expertise: "Value-Based Care Technology, Healthcare Innovation",
       image: "/advisor-placeholder.png",
+      slug: "jean-claude-saghbini",
     },
   ];
 
@@ -49,9 +56,10 @@ export default function AdvisoryBoard() {
 
         <div className="flex flex-wrap justify-center gap-8">
           {advisors.map((advisor, index) => (
-            <div
+            <Link
               key={index}
-              className="text-center group"
+              href={`/advisor/${advisor.slug}`}
+              className="text-center group block"
             >
               <div className="w-24 h-24 mx-auto mb-3 bg-white rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg transition-all">
                 <div className="text-[var(--green-light)]">
@@ -62,7 +70,7 @@ export default function AdvisoryBoard() {
               </div>
               <h3 className="font-medium text-sm text-[var(--text-primary)] max-w-[150px] mx-auto">{advisor.name}</h3>
               <p className="text-xs text-[var(--text-secondary)] mt-1 max-w-[150px] mx-auto line-clamp-2">{advisor.title}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
